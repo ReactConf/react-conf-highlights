@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="frame" viewBox="0 0 176.81 176.81">
+<defs>
+  <style>
+    .cls-1 {
+        fill:#39b54a;
+        stroke:#000;
+        stroke-miterlimit:10;
+        stroke-width:4.81px;
+    }
+  
+    #frame circle {
+        animation: change 2s infinite;
+    } 
+     
+    @keyframes change {
+        0%, 100% {
+            fill: red;
+        }  
+        50% {
+            fill: green;
+        }
+    }
+  </style>
+</defs>
+<title>circle</title>
+    <circle class="cls-1" cx="88.41" cy="88.41" r="86"/>
+</svg>

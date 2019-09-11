@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>PWA - React Conf 2019 - By M.H.Malek</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/ReactConf.css" id="react-conf">
+
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+
+			<section data-background-image="images/poster-first-2.png" data-background-color="white"></section>
+
+
+			<section>
+				<section class="rtl">
+					<img src="images/pwa-logo.png" class="pwa-logo" />
+					<p><small> یا </small></p>
+					<p>
+						<small> همون چیزی که مرز اپلیکیشن‌های
+							<span class="pink">موبایل</span>
+							و
+							<span class="pink">وب</span>
+							رو از بین می‌بره!</small>
+					</p>
+				</section>
+
+			</section>
+
+
+
+
+
+			<!-- <section class="rtl" data-background-image="images/pwa-great-sec.png"></section> -->
+
+
+
+
+
+			<section>
+				<h2 class="orange">PWA != SPA </h2>
+			</section>
+
+
+			<!-- Web App manifest -->
+
+			<section>
+
+
+				<section class="rtl">
+					<img src="images/manifest-json-orange.png" class="img-normal-width" />
+					<p>
+						Manifest
+					</p>
+				</section>
+				<section class="fragments" data-transition="fade-right" style="display: flex">
+					<p class="rtl">مراحل اضافه کردن به HomeScreen</p>
+					<img class="fragment fade-right" src="images/addtohome/1.png" style="width: 220px;" />
+					<img class="fragment fade-right" src="images/addtohome/2.png"
+						style="width: 210px;margin-bottom: 36px;" />
+					<img class="fragment fade-right" src="images/addtohome/3.png"
+						style="width: 207px;margin-bottom: 39px;" />
+				</section>
+
+
+
+
+
+				<section>
+					<img src='images/splash-snapp.png' style="width:300px;" />
+				</section>
+
+				<section>
+					<p class="rtl">
+						<small>نمونه فایل Manifest</small>
+					</p>
+					<pre><code data-trim data-noescape>
+													{
+													 "short_name": "Snapp",
+													 "name": "Snapp lite",
+													 "start_url": "/index.html",
+													 "icons": [{
+													  "src": "images/icon-128x128.png",
+													  "sizes": "128x128",
+													  "type": "image/png"
+													  },
+													  ...
+													 ],
+													 "display": "standalone",
+													 "orientation": "portrait",
+													 "background_color": "#06df70",
+													 "theme_color": "#06df70"
+													}
+											</code></pre>
+				</section>
+
+				<section class="rtl">
+					<p>Manifest در DevTools</p>
+					<img src="images/macbook-manifest.png" style="width: 800px;" />
+				</section>
+
+
+
+			</section>
+
+
+
+			<!-- Service Worker file -->
+			<section>
+				<section class="rtl">
+					<img src="images/service-worker-orange.png" class="img-normal-width" />
+					<p>Service Worker</p>
+				</section>
+
+				<section>
+					<img src="images/service-worker-general.png">
+				</section>
+
+				<section>
+					<p>Index.html</p>
+					<pre><code data-trim data-noescape>
+																												
+					window.addEventListener('load', () => {
+
+					  if (!('serviceWorker' in navigator)) {
+					    /* service workers not supported 😣 */
+						return
+					  }
+					
+
+					navigator.serviceWorker.register('/service-worker.js').then(
+					  () => {
+						/* registered! 👍🏼*/
+					  },
+					  err => {
+						console.error('SW registration failed! 😱', err)
+					   })
+
+					})
+					</code>
+					</pre>
+				</section>
+				<section>
+					<p>service-worker.js</p>
+					<pre><code data-trim data-noescape>
+self.addEventListener('install', event => {
+ event.waitUntil(
+  //some code for precache files
+ })
+);
+
+self.addEventListener('activate', event => {
+ event.waitUntil(
+  // remove old version cache
+ })
+);
+
+self.addEventListener('fetch', event => {
+ //handle fetch Event
+});
+									</code>
+									</pre>
+				</section>
+
+
+				<section>
+					<p> Offline page backup </p>
+					<pre><code data-trim data-noescape>
+								self.addEventListener("fetch", function(event) {
+								
+								event.respondWith(
+								caches
+								.match(event.request)
+								.then(function(cached) {
+								 var networked = fetch(event.request)
+								 .then(fetchedFromNetwork, unableToResolve)
+								 .catch(unableToResolve);
+								  return cached || networked;
+							
+								 function fetchedFromNetwork(response) {
+									
+								 var cacheCopy = response.clone();								  
+								  caches
+								 .open(version + 'pages')
+								 .then(function add(cache) {
+								  cache.put(event.request, cacheCopy);
+								 })
+								 .then(function() {
+								 });
+								  return response;
+								}
+								 function unableToResolve () {
+								  return new Response('Service Unavailable', {
+									 status: 503,
+									 statusText: 'Service Unavailable',
+									 headers: new Headers({
+									  'Content-Type': 'text/html'
+									 })
+								  });
+								 }
+								})
+							 );
+							});
+					</code>
+					</pre>
+				</section>
+
+
+
+
+			</section>
+
+
+			<section>
+				<section>
+					<img src="images/workbox.png" />
+					<p>
+						<span>Google</span>
+						<span class="orange">Workbox</span>
+					</p>
+				</section>
+				<section class="rtl">
+					<img src="images/workbox-schema.png" />
+				</section>
+
+				<section>
+					<p class="rtl"> ساخت سرویس ورکر با GenerateSW</p>
+					<pre>
+						<code data-trim data-noescape>
+						const path = require('path');
+						const htmlPlugin = require('html-webpack-plugin');
+						...
+						const workboxPlugin = require('workbox-webpack-plugin');
+						</code>					
+						</pre>
+					<p></p>
+					<pre>
+							<code data-trim data-noescape>
+							plugins: [
+							 new workboxPlugin.GenerateSW({
+							  swDest: 'sw.js',
+							  clientsClaim: true,
+							  skipWaiting: true,
+							 })
+							]
+												</code>					
+												</pre>
+				</section>
+
+				<section>
+					<p class="rtl"> ساخت سرویس ورکر اختصاصی با InjectManifest</p>
+					<pre>
+						<code data-trim data-noescape>
+						const path = require('path');
+						const htmlPlugin = require('html-webpack-plugin');
+						...
+						const workboxPlugin = require('workbox-webpack-plugin');
+						</code>					
+						</pre>
+					<p></p>
+					<pre>
+						<code data-trim data-noescape>
+						plugins: [
+						 new workboxPlugin.InjectManifest({ 
+						  swSrc: './src/sw.js',
+						  swDest: 'sw.js' 
+						 })
+						]
+						</code>					
+						</pre>
+				</section>
+
+				<section>
+					<p class="rtl">sw.js</p>
+					<pre>
+																			<code data-trim data-noescape>
+										workbox.core.skipWaiting();
+										workbox.core.clientsClaim();
+										
+										workbox.routing.registerRoute(
+										 new RegExp('https://app.snapp.taxi'),
+										 new workbox.strategies.StaleWhileRevalidate()
+										);
+										
+										self.addEventListener('push', (event) => {
+										 const title = 'Get Started With Workbox';
+										 const options = {
+										  body: event.data.text()
+										 };
+										 event.waitUntil(self.registration.showNotification(title, options));
+										});
+										
+										workbox.precaching.precacheAndRoute(self.__precacheManifest);
+																			</code>					
+																			</pre>
+				</section>
+
+
+			</section>
+
+
+			 <section>
+				<section>
+					<img src="images/cache-icon.png" class="img-normal-width" />
+					<p>Cache Strategies</p>
+				</section>
+
+				<!-- cache only startegy -->
+				<section class="rtl">
+					<img src="images/service-worker-strategies/cacheOnlyStrategy.jpg" />
+				</section>
+
+				<!-- cache First Strategy -->
+				<section class="rtl">
+					<img src="images/service-worker-strategies/cacheFirstStrategy.jpg" />
+				</section>
+
+				<!-- network only strategy -->
+
+				<section class="rtl">
+					<img src="images/service-worker-strategies/networkOnlyStrategy.jpg" />
+				</section>
+
+
+				<!-- network First Startegy -->
+
+				<section>
+					<img src="images/service-worker-strategies/networkFirstStrategy.jpg" />
+				</section>
+
+				<!-- stale Whil Revalidate Startegy -->
+
+				<section>
+					<img src="images/service-worker-strategies/staleWhileRevalidate.jpg" />
+				</section>
+
+
+				<section>
+					<p class="pink">چه موقع از این استراتژی‌ها استفاده کنیم؟</p>
+					<table class="rtl">
+						<thead>
+							<tr>
+								<th class="orange">نوع اطلاعات</th>
+								<th class="orange">تغییرات</th>
+								<th class="orange">استراتژی</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>داده‌هایی که حیاتی نیستند ولی نیاز به به روزرسانی دارند. </td>
+								<td>اغلب</td>
+								<td>StaleWhileRevalidate</td>
+							</tr>
+							<tr>
+								<td>اطلاعات مورد نیاز برای اجرای برنامه (فایل‌های اصلی، اسکریپت‌ها)</td>
+								<td>بسیار کم</td>
+								<td>cacheOnly</td>
+							</tr>
+							<tr>
+								<td>فایل‌های کش شده</td>
+								<td>گاهی اوقات</td>
+								<td>cacheFirst</td>
+							</tr>
+							<tr>
+
+								<td>داده‌های مهم از لحاظ زمانی (مثل اخبار و ...)</td>
+								<td>اغلب</td>
+								<td>NetworkFirst</td>
+							</tr>
+							<tr>
+								<td>داده‌های مهم از لحاظ میزان اهمیت (مثل داده‌های کاربران و ...)</td>
+								<td>اغلب</td>
+								<td>NetworkOnly</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</section>
+
+
+
+			</section>
+
+
+
+			<section>
+				<ul>
+					<li style="list-style-type: none;margin:30px -30px;"> - Read More About PWA</li>
+					<li>
+						<a href="https://developers.google.com/web/progressive-web-apps/">Google Developers</a>
+					</li>
+					<li>
+						<a href="https://www.chromestatus.com/samples"> Service Worker Examples </a>
+					</li>
+					<li>
+						<a href="https://serviceworke.rs/"> Service Worker CookBook </a>
+					</li>
+					<li>
+						<a href="https://developers.google.com/web/tools/workbox/"> Workbox documentation </a>
+					</li>
+
+				</ul>
+				<div>
+
+
+					<ul>
+						<li style="list-style-type: none;margin:30px -30px;"> - Icons and design Licences</li>
+
+						<li>
+							<a href="https://www.flaticon.com/authors/smashicons">SmashIcons</a> from <a
+								href="http://www.flaticon.com/">flaticon</a>
+						</li>
+						<li>
+							<a href="https://www.flaticon.com/authors/srip">Srip</a> from <a
+								href="http://www.flaticon.com/">flaticon</a>
+						</li>
+
+
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<p class="rtl orange" style="margin-bottom: 30px;">ارتباط با من:</p>
+				<ul class="social-icons">
+					<li>
+							<img src="images/email.png" />	Mhos.Malek@gmail.com
+					</li>
+					<li >
+						<img src="images/Linkedin-Download-PNG.png"/> Linkedin.com/in/mhmalek
+					</li>
+					<li >
+							<img src="images/github.png" style="filter: invert(1)"/> Github.com/MHMALEK
+					</li>
+					<li >
+							<img src="images/twitter.png"/>  Twitter.com/Mh_Malek
+					</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<p class="rtl orange">
+					ممنون که همراه ما بودید!
+				</p>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="js/reveal.js "></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: false,
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+					src: 'plugin/markdown/marked.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				},
+				{
+					src: 'plugin/search/search.js',
+					async: true
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				}
+			]
+		});
+	</script>
+
+</body>
+
+</html>

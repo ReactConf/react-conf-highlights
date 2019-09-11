@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+
+
+<div class="reveal">
+    <div class="slides">
+        <section data-background-color="#050238">
+            <p>React Server-Side Rendering</p>
+            <p style="color: #E50A7C;">The
+                <span style="color:white; text-decoration: line-through;">ReHydration</span>
+                Part
+            </p>
+        </section>
+        <section data-background-color="#060249">Mohammad
+            <span style="color: #E50A7C;">Hassan</span>
+            Gilak
+        </section>
+        <section data-background-color="#050238">
+            ReactDOM.
+            <span style="color: #E50A7C;">hydrate(...)</span>
+        </section>
+        <section data-background-color="#050238">
+            Custom Server, Nextjs, Gatsby
+        </section>
+        <section data-background-color="#060249">
+            <div style="width: 80%;"><img src="/images/hydrate@2x.png" alt=""></div>
+            <ul style="position: absolute;top: 31px; right: 30px;">
+                <li>TFB</li>
+                <li>FP</li>
+                <li>FCP</li>
+                <li>TTI</li>
+                <li>RTTS</li>
+            </ul>
+        </section>
+        <section data-background-color="#050238">
+            ReactDOMServer.
+            <span style="color: #E50A7C;">renderToNodeStream(...)</span>
+        </section>
+        <section data-background-color="#050238">
+            <img src="images/6d6db04a-3330-4390-bb37-0c263750af6c.jpg" alt="">
+        </section>
+        <section data-background-color="#060249">
+            Component Caching
+            <ul>
+                <li>
+                    <a href="https://github.com/rookLab/react-component-caching">https://github.com/rookLab/react-component-caching</a>
+                </li>
+                <li>
+                    redis, memcache
+                </li>
+            </ul>
+        </section>
+        <section data-background-color="#060249">
+            Progressive Rendering
+        </section>
+    </div>
+</div>
+
+
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.configure({backgroundTransition: 'zoom'})
+  Reveal.initialize({
+    backgroundTransition: 'zoom',
+    dependencies: [
+      {src: 'plugin/markdown/marked.js'},
+      {src: 'plugin/markdown/markdown.js'},
+      {src: 'plugin/notes/notes.js', async: true},
+      {src: 'plugin/highlight/highlight.js', async: true}
+    ]
+  });
+</script>
+</body>
+</html>

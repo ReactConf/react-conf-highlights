@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>مروری بر SVG</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/white.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section  data-background-iframe="https://codepen.io/amir-abbas/full/jONmdPv" >
+          <div style="margin-top: 50%; text-align: center;"><h1 class="xlarge" style="margin: 0;">مروری بر SVG</h1><br>
+            <h4>
+              مزیت‌ها، شیوه‌ی درست استفاده،<br> دریافت خروجی مناسب و متحرک سازی
+            </h4></div>
+        </section>
+        <section class="center">
+          <h1>اسلاید‌ها از این آدرس در دسترس است 👌<br>
+            <a dir="ltr" href="https://skillvid.com/slides/reactconf98/">
+              skillvid.com/slides/reactconf98</a>
+          </h1>
+        </section>
+        <section>
+          <section data-transition="convex">
+            <h1>مزیت‌های استفاده از SVG</h1>
+            <ul>
+              <li>قابلیت scale کردن بدون افت کیفیت</li>
+              <li>ویرایش آسان به خاطر فرمت متنی</li>
+              <li>کوچک بودن سایز فایل</li>
+              <li>قابلیت متحرک سازی با CSS و JS</li>
+            </ul>
+          </section>
+
+          <section data-transition="convex" class="center">
+            <h4 class="center">قابلیت scale کردن بدون افت کیفیت</h4>
+            <img width="256" height="256" src="images/pngicon.png" alt="" />
+            <img width="256" height="256" src="images/svgicon.svg" alt="" />
+          </section>
+          <section data-transition="convex" class="center">
+            <h4 class="center">ویرایش آسان به خاطر فرمت متنی</h4>
+<pre><code class="html"><svg  height="48" id="Livello_1" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<defs>
+	<style>
+	.cls-1{fill:#e4c437;}
+	.cls-2{fill:#b33939;}
+	.cls-3{fill:#f2dc36;}
+	.cls-4{fill:#5eb254;}
+	.cls-5{fill:#db4342;}
+	.cls-6{fill:#40a5a8;}
+	.cls-7{fill:#f2f2f3;}
+	</style>
+</defs>
+<g id="Chrome">
+	<path class="cls-1" d="M38.482,11.489A24,24,0,0,1,21,47.807,24.342,24.342,0,0,0,24,48,24,24,0,0,0,48,24a22.688,22.688,0,0,0-2.639-10.937c-.249-.454-.581-1.062-.894-1.574Z"/>
+	<path class="cls-2" d="M39.352,13.073h6.014A24.009,24.009,0,0,0,24,0a24.342,24.342,0,0,0-3,.193A24.024,24.024,0,0,1,39.352,13.073Z"/>
+	<path class="cls-3" d="M41.372,13.073h0l-.773-.957H21.963v1.957c4.792.112,8.662,4.518,8.662,9.927a10.46,10.46,0,0,1-3.05,7.489l-7.825,15.7,1.065.575c.384.051.762.119,1.152.152l.033,0A24,24,0,0,0,41.372,13.073Z"/>
+	<path class="cls-4" d="M29.144,29.494a8.645,8.645,0,0,1-7.367,4.444c-3.991,0-7.369-2.985-8.468-7.071l-.275.023-.688-1.109L9.02,19.733l-4.449-8.6-1.056.359a23.984,23.984,0,0,0,17.3,36.274l9.479-18.269h-1.15Z"/>
+	<path class="cls-5" d="M12.93,24c0-5.479,3.969-9.937,8.847-9.937a7.938,7.938,0,0,1,1.47.148l-1.284-1.138H41.372A24.012,24.012,0,0,0,22.011.091a23.988,23.988,0,0,0-18.5,11.4h0l9.746,18.005.006-.01.749-.583.005-.128A10.848,10.848,0,0,1,12.93,24Z"/>
+	<path class="cls-6" d="M21.777,33.938c-4.878,0-8.847-4.459-8.847-9.938s3.969-9.937,8.847-9.937S30.625,18.521,30.625,24,26.656,33.938,21.777,33.938Z"/>
+	<path class="cls-7" d="M21.777,13.063c-5.429,0-9.847,4.906-9.847,10.937s4.418,10.938,9.847,10.938S31.625,30.031,31.625,24,27.208,13.063,21.777,13.063Zm0,19.875c-4.327,0-7.847-4.01-7.847-8.938s3.52-8.937,7.847-8.937S29.625,19.072,29.625,24,26.1,32.938,21.777,32.938Z"/>
+</g>
+</svg></code></pre>
+          </section>
+          <section data-transition="convex" class="center">
+            <h4 class="center">کوچک بودن سایز فایل</h4>
+            <img width="256" height="256" src="images/pngicon.png" alt="" />
+            <img width="256" height="256" src="images/svgicon.svg" alt="" />
+            <p>
+              تصویر PNG با حجم <strong>۶.۳</strong> کیلوبایت<br />
+              تصویر SVG با حجم <strong>۱.۷</strong> کیلوبایت
+            </p>
+          </section>
+          <section data-transition="convex" class="center">
+            <h4 class="center">قابلیت متحرک سازی با CSS و JS</h4>
+            <iframe
+              width="960"
+              height="700"
+              src="https://codepen.io/amir-abbas/full/XBMdBj"
+              frameborder="0"
+            ></iframe>
+            <a href="https://codepen.io/amir-abbas/full/XBMdBj">https://codepen.io/amir-abbas/full/XBMdBj</a>
+          </section>
+        </section>
+
+        <section>
+          <section data-transition="convex">
+            <h1>شیوه درست استفاده از SVG در صفحات وب</h1>
+            <ul>
+              <li>استفاده از تگ img</li>
+              <li>استفاده در CSS با کمک دستور background-image</li>
+              <li>استفاده از iframe</li>
+              <li>استفاده از embed</li>
+              <li>استفاده از تگ object</li>
+              <li>استفاده به شکل inline</li>
+            </ul>
+          </section>
+          <section class="center" data-transition="convex">
+            <img src="images/svgicon.svg" alt="Logo" height="128" width="128" />
+            <pre><code>
+  <img src="images/svgicon.svg" alt="Logo" height="128" width="128">
+
+</code></pre>
+          </section>
+          <section class="center" data-transition="convex">
+            <span
+              style="display: block;
+							 margin: 0 auto; 
+							 width: 128px; 
+							 height: 128px;
+							 background: url(images/svgicon.svg) center;
+							 background-size: 128px 128px;
+							 "
+            ></span>
+            <pre><code class="css">
+  .logo {
+	background: url(images/svgicon.svg) center;
+	background-size: 128px 128px;
+  }
+
+</code></pre>
+<p>نکته: در صورتی که SVG را به شکل background-image در CSS استفاده کردید <br>حتما باید از background-size هم استفاده کنید.</p>
+          </section>
+
+          <section class="center" data-transition="convex">
+            <iframe
+              width="128"
+              height="128"
+              src="images/svgicon.svg"
+              frameborder="0"
+            ></iframe>
+            <pre><code>
+  <iframe src="images/svgicon.svg">مرورگر شما از آی فریم پشتیبانی نمی‌کند</iframe>
+
+</code></pre>
+<p>واقعا بعید به نظر می‌رسد کسی از این شیوه استفاده کند ولی به هر حال <br><br>¯/_(ツ)_\¯</p>
+          </section>
+
+          <section class="center" data-transition="convex">
+            <embed
+              width="128"
+              height="128"
+              type="image/svg+xml"
+              src="images/svgicon.svg"
+            />
+            <pre><code>
+  <embed width="128" height="128" type="image/svg+xml" src="images/svgicon.svg" />
+
+</code></pre>
+<p>تگ embed استاندارد و پذیرفته W3C نیست. پس ترجیحا از این متد استفاده نکنید ;)</p>
+          </section>
+
+          <section class="center" data-transition="convex">
+            <object width="128" type="image/svg+xml" data="images/svgicon.svg"
+              >مرورگر شما از SVG پشتیبانی نمی‌کند</object
+            >
+            <pre><code>
+  <object type="image/svg+xml" data="images/svgicon.svg">مرورگر شما از SVG پشتیبانی نمی‌کند</object>
+
+</code></pre>
+          </section>
+
+          <section class="center" data-transition="convex">
+            <svg
+              height="128"
+              width="128"
+              id="Livello_1"
+              viewBox="0 0 48 48"
+              width="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #e4c437;
+                  }
+                  .cls-2 {
+                    fill: #b33939;
+                  }
+                  .cls-3 {
+                    fill: #f2dc36;
+                  }
+                  .cls-4 {
+                    fill: #5eb254;
+                  }
+                  .cls-5 {
+                    fill: #db4342;
+                  }
+                  .cls-6 {
+                    fill: #40a5a8;
+                  }
+                  .cls-7 {
+                    fill: #f2f2f3;
+                  }
+                </style>
+              </defs>
+              <g id="Chrome">
+                <path
+                  class="cls-1"
+                  d="M38.482,11.489A24,24,0,0,1,21,47.807,24.342,24.342,0,0,0,24,48,24,24,0,0,0,48,24a22.688,22.688,0,0,0-2.639-10.937c-.249-.454-.581-1.062-.894-1.574Z"
+                ></path>
+                <path
+                  class="cls-2"
+                  d="M39.352,13.073h6.014A24.009,24.009,0,0,0,24,0a24.342,24.342,0,0,0-3,.193A24.024,24.024,0,0,1,39.352,13.073Z"
+                ></path>
+                <path
+                  class="cls-3"
+                  d="M41.372,13.073h0l-.773-.957H21.963v1.957c4.792.112,8.662,4.518,8.662,9.927a10.46,10.46,0,0,1-3.05,7.489l-7.825,15.7,1.065.575c.384.051.762.119,1.152.152l.033,0A24,24,0,0,0,41.372,13.073Z"
+                ></path>
+                <path
+                  class="cls-4"
+                  d="M29.144,29.494a8.645,8.645,0,0,1-7.367,4.444c-3.991,0-7.369-2.985-8.468-7.071l-.275.023-.688-1.109L9.02,19.733l-4.449-8.6-1.056.359a23.984,23.984,0,0,0,17.3,36.274l9.479-18.269h-1.15Z"
+                ></path>
+                <path
+                  class="cls-5"
+                  d="M12.93,24c0-5.479,3.969-9.937,8.847-9.937a7.938,7.938,0,0,1,1.47.148l-1.284-1.138H41.372A24.012,24.012,0,0,0,22.011.091a23.988,23.988,0,0,0-18.5,11.4h0l9.746,18.005.006-.01.749-.583.005-.128A10.848,10.848,0,0,1,12.93,24Z"
+                ></path>
+                <path
+                  class="cls-6"
+                  d="M21.777,33.938c-4.878,0-8.847-4.459-8.847-9.938s3.969-9.937,8.847-9.937S30.625,18.521,30.625,24,26.656,33.938,21.777,33.938Z"
+                ></path>
+                <path
+                  class="cls-7"
+                  d="M21.777,13.063c-5.429,0-9.847,4.906-9.847,10.937s4.418,10.938,9.847,10.938S31.625,30.031,31.625,24,27.208,13.063,21.777,13.063Zm0,19.875c-4.327,0-7.847-4.01-7.847-8.938s3.52-8.937,7.847-8.937S29.625,19.072,29.625,24,26.1,32.938,21.777,32.938Z"
+                ></path>
+              </g>
+            </svg>
+<pre><code class="html"><svg height="128" width="128" id="Livello_1" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    .cls-1{fill:#e4c437;}
+    .cls-2{fill:#b33939;}
+    .cls-3{fill:#f2dc36;}
+    .cls-4{fill:#5eb254;}
+    .cls-5{fill:#db4342;}
+    .cls-6{fill:#40a5a8;}
+    .cls-7{fill:#f2f2f3;}
+  </style>
+</defs>
+<g id="Chrome">
+  <path class="cls-1" d="M38.482,11.489A24,24,0,0,1,21,47.807,24.342,24.342,0,0,0,24,48,24,24,0,0,0,48,24a22.688,22.688,0,0,0-2.639-10.937c-.249-.454-.581-1.062-.894-1.574Z"></path>
+  <path class="cls-2" d="M39.352,13.073h6.014A24.009,24.009,0,0,0,24,0a24.342,24.342,0,0,0-3,.193A24.024,24.024,0,0,1,39.352,13.073Z"></path>
+  <path class="cls-3" d="M41.372,13.073h0l-.773-.957H21.963v1.957c4.792.112,8.662,4.518,8.662,9.927a10.46,10.46,0,0,1-3.05,7.489l-7.825,15.7,1.065.575c.384.051.762.119,1.152.152l.033,0A24,24,0,0,0,41.372,13.073Z"></path>
+  <path class="cls-4" d="M29.144,29.494a8.645,8.645,0,0,1-7.367,4.444c-3.991,0-7.369-2.985-8.468-7.071l-.275.023-.688-1.109L9.02,19.733l-4.449-8.6-1.056.359a23.984,23.984,0,0,0,17.3,36.274l9.479-18.269h-1.15Z"></path>
+  <path class="cls-5" d="M12.93,24c0-5.479,3.969-9.937,8.847-9.937a7.938,7.938,0,0,1,1.47.148l-1.284-1.138H41.372A24.012,24.012,0,0,0,22.011.091a23.988,23.988,0,0,0-18.5,11.4h0l9.746,18.005.006-.01.749-.583.005-.128A10.848,10.848,0,0,1,12.93,24Z"></path>
+  <path class="cls-6" d="M21.777,33.938c-4.878,0-8.847-4.459-8.847-9.938s3.969-9.937,8.847-9.937S30.625,18.521,30.625,24,26.656,33.938,21.777,33.938Z"></path>
+  <path class="cls-7" d="M21.777,13.063c-5.429,0-9.847,4.906-9.847,10.937s4.418,10.938,9.847,10.938S31.625,30.031,31.625,24,27.208,13.063,21.777,13.063Zm0,19.875c-4.327,0-7.847-4.01-7.847-8.938s3.52-8.937,7.847-8.937S29.625,19.072,29.625,24,26.1,32.938,21.777,32.938Z"></path>
+</g>
+</svg></code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section
+            class="center"
+            data-background-image="images/asking.jpg"
+            data-transition="convex"
+            data-background-transition="fade-out fade-in"
+          >
+            <p
+              class="white shadow xxlarge"
+              style="position: absolute; left: 0;"
+            >
+              کدومش روش بهتریه؟
+            </p>
+          </section>
+          <section class="center" data-transition="convex">
+            <table>
+              <thead>
+                <tr>
+                  <th>قابلیت ها</th>
+                  <th>object</th>
+                  <th>inline</th>
+                  <th>img</th>
+                  <th>background-image</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>دسترسی از طریق CSS</th>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                  <td>به شکل خاص</td>
+                  <td>به شکل خاص</td>
+                </tr>
+                <tr>
+                  <th>دسترسی از طریق JS</th>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                  <td class="reject">ندارد</td>
+                  <td class="reject">ندارد</td>
+                </tr>
+                <tr>
+                  <th>استفاده از SVG Animation</th>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                </tr>
+                <tr>
+                  <th>Interactive Animation</th>
+                  <td class="accept">دارد</td>
+                  <td class="accept">دارد</td>
+                  <td class="reject">ندارد</td>
+                  <td class="reject">ندارد</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              منظور از «به شکل خاص» حالتی است که دستورات CSS داخل خود فایل SVG
+              قرار گرفته باشند.
+            </p>
+          </section>
+          <section class="center" data-transition="convex">
+			  <img width="128" height="128" src="images/circle.svg" alt="">
+            
+<pre><code class="html"><svg xmlns="http://www.w3.org/2000/svg" id="frame" viewBox="0 0 176.81 176.81">
+<defs>
+	<style>
+	.cls-1 {
+		fill:#39b54a;
+		stroke:#000;
+		stroke-miterlimit:10;
+		stroke-width:4.81px;
+	}
+	
+	#frame circle {
+		animation: change 2s infinite;
+	} 
+		
+	@keyframes change {
+		0%, 100% {
+			fill: red;
+		}  
+		50% {
+			fill: green;
+		}
+	}
+</style>
+</defs>
+<title>circle</title>
+	<circle class="cls-1" cx="88.41" cy="88.41" r="86"/>
+</svg>
+	
+</code></pre>
+<p>در اینجا انیمیشن ما داخل خود فایل SVG قرار گرفته است</p>
+		  </section>
+		  <section class="center" data-transition="convex">
+        <iframe width="960" height="700" src="https://codepen.io/eclarrrk/full/vvwayL" frameborder="0"></iframe>
+        <a href="https://codepen.io/eclarrrk/full/vvwayL">https://codepen.io/eclarrrk/full/vvwayL</a>
+      </section>
+      
+      <section  data-transition="convex" data-background-color="#0FC767" class="white">
+        <h1 class="white">نکته</h1>
+        <p>تغییر رنگ آیکون های SVG که به شکل img در صفحه استفاده شده باشند با استفاده از ترفند‌هایی امکان‌پذیر است. برای اطلاعات بیشتر می‌توانید این ویدیو را ببینید:<br><br>
+          <iframe width="960" height="500" src="https://www.youtube.com/embed/M2IDKozS9lI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <a href="https://www.youtube.com/embed/M2IDKozS9lI">https://www.youtube.com/embed/M2IDKozS9lI</a>
+        </p>
+      </section>
+
+		  <section data-transition="convex" data-background-color="#0FC767" class="white">
+        <h2 class="white">نکته</h2>
+        <p>استفاده از SMIL (بخوانید اسمایل) پیشنهاد نمی‌شود</p>
+        <iframe width="960" height="500" src="https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/" frameborder="0"></iframe>
+        <a href="https://css-tricks.com/smil-is-dead-long-live-smil-a-guide-to-alternatives-to-smil-features/">SMIL is Dead</a>
+		  </section>
+        </section>
+
+        <section>
+          <section data-transition="convex">
+            <h1>راه‌هایی برای بهینه سازی SVG</h1>
+            <ul>
+              <li>نام گذاری لایه های در Illustrator</li>
+              <li>
+                ساده کردن path ها با استفاده از ابزار Simplify یا پلاگین
+                VectorScribe
+              </li>
+              <li>استفاده از قابلیت make pixel perfect</li>
+              <li>تبدیل shape ها به compound path در ایلستریتر</li>
+              <li>حذف تگ‌های اضافه با SVGO</li>
+              <li>gzip کردن فایل های SVG روی سرور</li>
+            </ul>
+      </section>
+      <section data-background-image="images/watching-you.gif">
+      <h1 style="color: #fff; position: absolute; top: 500px; font-size: 80px; text-shadow: 0 3px 10px #000">حواسم بهت هست!</h1>
+      </section>
+		  <section data-transition="convex" class="center">
+        <p>نام‌گذاری لایه ها توسط طراح، کار را برای شما آسان تر می‌کند :)</p>
+			<img width="700" src="images/naming-layers.png" alt="">
+		  </section>
+		  <section data-transition="convex" class="center">
+			<img width="650" src="images/simplify.png" alt="">
+		  </section>
+		  <section data-transition="convex" class="center">
+        <p>استفاده از فرمت vector لزوما تضمین نمی‌کند که تصاویر شما شارپ باشد</p>
+			<img width="650" src="images/subpixel.png" alt="">
+		  </section>
+		  <section data-transition="convex" class="center">
+			<img width="650" src="images/pixel-perfect.png" alt="">
+		  </section>
+		  <section data-transition="convex" class="center">
+			  <img width="450" src="images/compound-path.png" alt="">
+<pre><code class="html">
+  <rect class="cls-2" x="32.44" y="1.61" width="27" height="29"/>
+</code></pre>
+<pre><code class="html">
+  <path class="cls-2" d="M427,309H400V280h27Z" transform="translate(-367.56 -278.39)"/>
+</code></pre>
+			</section>
+			<section data-transition="convex">
+        <p>با استفاده از این ابزار به راحتی می‌توانید فایل SVG خود را تمیز کنید. اگر می‌خواهید از ابزار آفلاین استفاده کنید می‌توانید از این پلاگین استفاده کنید:<br>
+          <a href="https://github.com/svg/svgo">https://github.com/svg/svgo</a>
+        </p>
+					<iframe
+					width="960"
+					height="500"
+					src="https://jakearchibald.github.io/svgomg/"
+					frameborder="0"
+          ></iframe>
+          <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>
+			</section>
+		</section>
+		
+		<section>
+
+				<section data-transition="convex">
+						<h1>شیوه‌های متحرک سازی SVG</h1>
+						<ul>
+							<li>متحرک‌سازی ساده با استفاده از CSS Transition و Transform</li>
+							<li>تکنیک line Animation</li>
+							<li>تکنیک Morph</li>	
+						</ul>
+        </section>
+        <section data-transition="convex">
+          <h3>خصوصیات CSS مخصوص SVG</h3>
+          <iframe
+            width="960"
+            height="550"
+            src="https://css-tricks.com/svg-properties-and-css/"
+            frameborder="0"
+            ></iframe>
+            <p><a href="https://css-tricks.com/svg-properties-and-css/">https://css-tricks.com/svg-properties-and-css/</a><br><a href="https://www.w3.org/TR/SVG11/styling.html">https://www.w3.org/TR/SVG11/styling.html</a></p>
+
+        </section>
+
+        <section data-transition="convex">
+           <h3>متحرک‌سازی ساده با استفاده از CSS Transition و Transform</h3>
+            <iframe
+            width="960"
+            height="700"
+            src="https://codepen.io/amir-abbas/full/wvwdJWg"
+            frameborder="0"
+            ></iframe>
+            <a href="https://codepen.io/amir-abbas/full/wvwdJWg">https://codepen.io/amir-abbas/full/wvwdJWg</a>
+            
+        </section>
+
+        <section data-transition="convex" data-background-color="#0FC767" class="white">
+          <h1 class="white">نکته ها</h1>
+          <ul>
+            <li>همه حرکت ها باید داخل محدوده viewbox اتفاق بیافتد در غیر این صورت دیده نمی‌شود</li>
+            <li>مرورگرهای قدیمی تر با transform-origin بر روی المنت های SVG مشکل دارند
+              <ul>
+                <li>برای حل این مشکل transform-origin را به شکل پیکسلی بدهید</li>
+                <li>از پلاگین‌های JS مناسب برای اینکار استفاده کنید:<br>
+                  <a href="https://greensock.com/">پلاگین GreenSock</a><br>
+                  <a href="https://css-tricks.com/svg-animation-on-css-transforms/">مقاله مربوط به این مشکل</a><br>
+                  <a href="https://codepen.io/GreenSock/full/a33560bfc8ce49ad7e9f293b680d7458">دموی تصویری مشکل</a>
+                </li>
+                <li>از تکه کد جاواسکریپت ارائه شده در این صفحه استفاده کنید:
+                  <a href="https://codepen.io/EntropyReversed/pen/ZVPKoq">https://codepen.io/EntropyReversed/pen/ZVPKoq</a>
+                </li>
+                <li>جزئیات بیشتر درباره transform-origin در SVG را اینجا بخوانید:<br>
+                  <a href="https://css-tricks.com/transforms-on-svg-elements/">https://css-tricks.com/transforms-on-svg-elements/</a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </section>
+
+        <section data-transition="convex">
+
+          <h1>تکنیک Line Animation</h1>
+          <iframe 
+          width="960"
+          height="600" 
+          src="https://codepen.io/amir-abbas/full/zYOwXoJ" frameborder="0"></iframe>
+          <a href="https://codepen.io/amir-abbas/full/zYOwXoJ">https://codepen.io/amir-abbas/full/zYOwXoJ</a>
+        </section>
+        <section data-transition="convex">
+            <iframe 
+            width="960"
+            height="600" 
+            src="https://codepen.io/amir-abbas/full/VwZbNOa" frameborder="0"></iframe>
+            <a href="https://codepen.io/amir-abbas/full/VwZbNOa">https://codepen.io/amir-abbas/full/VwZbNOa</a>
+          </section>
+          <section data-transition="convex">
+              <iframe 
+              width="960"
+              height="600" 
+              src="https://codepen.io/juliangarnier/full/ZeEpgd" frameborder="0"></iframe>
+              <a href="https://codepen.io/juliangarnier/full/ZeEpgd">https://codepen.io/juliangarnier/full/ZeEpgd</a>
+            </section>
+            <section data-transition="convex">
+                <iframe 
+                width="960"
+                height="600" 
+                src="https://codepen.io/amir-abbas/full/RJxMNY" frameborder="0"></iframe>
+                <a href="https://codepen.io/amir-abbas/full/RJxMNY">https://codepen.io/amir-abbas/full/RJxMNY</a>
+  
+              </section>
+
+            <section data-transition="convex" data-background-color="#0FC767" class="white">
+              <h1 class="white">نکته‌ها و مراجع</h1>
+              <ul>
+                <li>مقالات خوب:
+                  <ul>
+                    <li><a href="https://jakearchibald.com/2013/animated-line-drawing-svg/">مقاله Jake Archibald در وبلاگ شخصی اش</a></li>
+                    <li><a href="https://css-tricks.com/svg-line-animation-works/">مقاله Chris Coyier در CSS-Tricks</a></li>
+                  </ul>
+                </li>
+                <li>پلاگین‌های خوب:
+                    <ul>
+                      <li><a href="http://maxwellito.github.io/vivus/">Vivus</a></li>
+                      <li><a href="http://lazylinepainter.info/">Lazy Line Painter</a></li>
+                      <li><a href="https://connoratherton.com/walkway">Walkway</a></li>
+                      <li><a href="https://greensock.com/drawsvg/">GreenSock DrawSVG  (تجاری)</a></li>
+                    </ul>
+                  </li>
+              </ul>
+
+            </section>
+
+            <section data-transition="convex">
+              <h1>تکنیک Morph</h1>
+              <iframe 
+              width="960"
+              height="600" 
+              src="https://codepen.io/GreenSock/full/rOjeRq" frameborder="0"></iframe>
+              <a href="https://codepen.io/GreenSock/full/rOjeRq">https://codepen.io/GreenSock/full/rOjeRq</a>
+
+            </section>
+
+            
+
+            <section data-transition="convex" data-background-color="#0FC767" class="white">
+                <h1 class="white">نکته‌ها</h1>
+                <ul>
+                  <li>با استفاده از CSS هم می‌توان از این تکنیک استفاده کرد ولی در حال حاضر تنها در مرورگر کروم کار می‌کند</li>
+                  <li>برای Morph کردن اشکال SVG شما باید به شکل path باشند تا بتوان آنها را Morph کرد. </li>
+                  <li>تعداد point های هر دو شکل باید یکسان باشد در غیر این صورت این تکنیک به درستی کار نمی‌کند</li>
+                  <li>پلاگین های معروف خودشان تعداد point ها را یکسان می‌کنند و تبدیل اشکال به path رو نیز خودشان انجام می‌دهند مانند پلاگین GreenSock</li>
+                  <li>پلاگین‌های مفید برای استفاده از این تکنیک:
+                    <ul>
+                      <li><a href="https://animejs.com/">anime.js</a></li>
+                      <li><a href="http://snapsvg.io/">SnapSvg</a></li>
+                      <li><a href="https://greensock.com/morphsvg/">GreenSock (تجاری)</a></li>
+                      <li><a href="https://aescripts.com/bodymovin/">Bodymovin (تجاری)</a></li>
+                    </ul>
+                  </li>
+                </ul>
+  
+              </section>
+
+              <section data-transition="convex" class="center">
+                <h3>Morph با CSS (فقط در کروم ساپورت می‌شود)</h3>
+                <iframe 
+                width="960"
+                height="600" 
+                src="https://codepen.io/chriscoyier/full/NRwANp" frameborder="0"></iframe>
+                <a href="https://codepen.io/chriscoyier/full/NRwANp">https://codepen.io/chriscoyier/full/NRwANp</a>
+            </section>
+
+              <section data-transition="convex" class="center">
+                  <h3>Anime.js</h3>
+                  <iframe 
+                  width="960"
+                  height="600" 
+                  src="https://codepen.io/juliangarnier/full/xOgyjB" frameborder="0"></iframe>
+                  <a href="https://codepen.io/juliangarnier/full/xOgyjB">https://codepen.io/juliangarnier/full/xOgyjB</a>
+              </section>
+
+              <section data-transition="convex" class="center">
+                  <h3>SnapSVG</h3>
+                  <iframe 
+                  width="960"
+                  height="600" 
+                  src="https://codepen.io/gruev/full/EjRvMJ" frameborder="0"></iframe>
+                  <a href="https://codepen.io/gruev/full/EjRvMJ">https://codepen.io/gruev/full/EjRvMJ</a>
+              </section>
+
+              <section data-transition="convex" class="center">
+                  <h3>GreenSock's MorphSVG</h3>
+                  <iframe 
+                  width="960"
+                  height="600" 
+                  src="https://codepen.io/jkantner/full/qYEogW" frameborder="0"></iframe>
+                  <a href="https://codepen.io/jkantner/full/qYEogW">https://codepen.io/jkantner/full/qYEogW</a>
+              </section>
+
+              <section data-transition="convex" class="center">
+                  <h3>Bodymovin</h3>
+                  <iframe 
+                  width="960"
+                  height="600" 
+                  src="https://codepen.io/airnan/full/avyEYg" frameborder="0"></iframe>
+                  <a href="https://codepen.io/airnan/full/avyEYg">https://codepen.io/airnan/full/avyEYg</a>
+              </section>
+
+              <section data-transition="convex" class="center">
+                  <h3>Lotti</h3>
+                  <iframe 
+                  width="960"
+                  height="600" 
+                  src="https://codepen.io/airnan/full/JmOqbN" frameborder="0"></iframe>
+                  <a href="https://codepen.io/airnan/full/JmOqbN">https://codepen.io/airnan/full/JmOqbN</a>
+              </section>
+
+              
+
+              
+          
+        
+
+      </section>
+      
+      <section data-transition="convex" data-background-image="images/bye.gif" class="white">
+          <p class="white" style="margin-top: 400px;">با من در تماس باشید :)</p>
+          <ul>
+            <li><a href="https://www.youtube.com/channel/UC9aYF7SavRo_A9psgpEmw0A">کانال یوتوب من</a></li>
+            <li><a href="https://twitter.com/amirabbas">تویتر</a></li>
+            <li><a href="https://www.linkedin.com/in/abdolali/">لینکدین</a></li>
+            <li><a href="https://dribbble.com/amirabbas/">دریبل</a></li>
+            <li>ایمیل: amirabbas.abdolali [at] gmail [dot] com</li>
+          </ul>
+
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true },
+          { src: "plugin/zoom-js/zoom.js", async: true }
+        ],
+        backgroundTransition: 'zoom',
+        rtl: true,
+        hash: true,
+        center: false,
+        maxScale: 1.2,
+        margin: 0.1
+      });
+    </script>
+  </body>
+</html>
