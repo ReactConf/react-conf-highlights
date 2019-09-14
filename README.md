@@ -4,7 +4,7 @@
 List of react conference presentations and videos.
 
 ## 2019
-### [React Conf Photo Gallery](https://photos.app.goo.gl/SepAfbXPQuYod5TQ9)
+##### [React Conf Photo Gallery](https://photos.app.goo.gl/SepAfbXPQuYod5TQ9)
 
 ### React Conf 2019 Videos
 
@@ -31,6 +31,6 @@ to view the presentations just go to the 2019 folder...
 
 ### More Detail Links
   * [Qraphql and Apollo Demo](https://react-conf.herokuapp.com/graphql)
-  * [Qraphql and Apollo Demo](https://react-conf.herokuapp.com/graphql)
   * [graphql-client](https://gitlab.com/pedrammarandi/reactconf-ir-graphql-client)
+  * [Everything about SVG Demo](https://skillvid.com/slides/reactconf98/)
 
