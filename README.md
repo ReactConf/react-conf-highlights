@@ -33,4 +33,4 @@ to view the presentations just go to the 2019 folder...
   * [Qraphql and Apollo Demo](https://react-conf.herokuapp.com/graphql)
   * [graphql-client](https://gitlab.com/pedrammarandi/reactconf-ir-graphql-client)
   * [Everything about SVG Demo](https://skillvid.com/slides/reactconf98/)
-
+  * [State Management with Context API in details](https://medium.com/@tgholami/react-state-management-with-context-api-4dc72b3633a9)
